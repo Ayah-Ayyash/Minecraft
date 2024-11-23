@@ -11,12 +11,13 @@ namespace Assignment18
 
         void Start()
         {
-            Soldier Sold = new Soldier("Ayah", 100, new Position(1, 3, 2));
-            Soldier Off = new Soldier("Mohammed", 70, new Position(5, 4, 7));
+            Soldier soldier = new Soldier("Ayah", 100, new Position(1, 3, 2));
+            Officer officer = new Officer("Mohammed", 70, new Position(5, 4, 7));
+
 
             Character[] Child = new Character[2];
-            Child[0] = Sold;
-            Child[1] = Off;
+            Child[0] = soldier;
+            Child[1] = officer;
 
 
 
@@ -35,13 +36,13 @@ namespace Assignment18
 
             //الآن بدي اطبع قيم سوليدير قبل وبعد الهجوم
             // بالتالي لازم يكون في هجوم
-            Debug.Log($"Soldier Before Attack =  {Sold.Health}");
+            Debug.Log($"Soldier Before Attack =  {soldier.Health}");
 
 
             int damage = 40;
-            Off.Attack(damage , Sold);
+            officer.Attack(damage, soldier);
 
-             Debug.Log($"Soldier After Attack =  {Sold.Health}");
+            Debug.Log($"Soldier After Attack =  {soldier.Health}");
 
         }
 

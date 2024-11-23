@@ -15,18 +15,7 @@ namespace Assignment18
             get { return health; }
             set
             {
-                if (value < 0)
-                {
-                    health = 0;
-                }
-                else if (value > 100)
-                {
-                    health = 100;
-                }
-                else
-                {
-                    health = value;
-                }
+                 health = Mathf.Clamp(value, 0, 100);
             }
         }
 
@@ -40,7 +29,7 @@ namespace Assignment18
             this.position = position;
         }
 
-        public Character() : this("", 100, new Position(2, 8, 5))
+        public Character() : this("", 100, new Position(0,0,0))
         {
 
         }
@@ -57,17 +46,16 @@ namespace Assignment18
 
         // }
 
-        public void Attack(int damage, Character target, string attackType) // بده يقلل الهيلث 
-        {
-            Debug.Log($"Attack Type : {attackType}");
-        }
-
-        //DRY
         public void Attack(int damage, Character target)
-        {
-            //this.Health -= damage;
-            target.Health -= damage;
-
-        }
+    {
+        target.Health -= damage;
     }
+
+   
+    public void Attack(int damage, Character target, string attackType)
+{
+    target.Health -= damage;  
+    Debug.Log($"Attack Type: {attackType}, Target: {target.name}, Damage: {damage}");
 }
+
+}}
